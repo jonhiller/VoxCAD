@@ -1,0 +1,3 @@
+[submodule "Voxelyze"]
+	path = Voxelyze
+	url = https://github.com/jonhiller/Voxelyze.git
