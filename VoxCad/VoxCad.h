@@ -1,7 +1,6 @@
 #ifndef VOXCAD_H
 #define VOXCAD_H
 
-#include <QtGui/QMainWindow>
 #include "ui_VoxCad.h"
 #include "QVX_Edit.h"
 #include "QVX_Interfaces.h"
