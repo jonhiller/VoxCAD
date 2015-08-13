@@ -14,7 +14,7 @@
 #include <qsettings.h>
 
 //#ifdef VX2
-#include "../voxelyze/include/VX_Voxel.h"
+#include "../Voxelyze/include/VX_Voxel.h"
 //#endif
 
 //for multithreading
@@ -246,7 +246,7 @@ private:
 
 	//for interacting with structure
 //	bool Dragging; //Is the input voxel active
-//	CVXS_Voxel* DraggingVoxel;
+	CVXS_Voxel* DraggingVoxel;
 	vfloat DraggingStiffness;
 	Vec3D<> DraggingOffset;
 	Vec3D<> InputPoint;
