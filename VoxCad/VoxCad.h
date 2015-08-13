@@ -32,7 +32,7 @@ class VoxCad : public QMainWindow
 	Q_OBJECT
 
 public:
-	VoxCad(QWidget *parent = 0, Qt::WFlags flags = 0);
+    VoxCad(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	~VoxCad();
 
 	enum AppViewMode {VM_3DVIEW, VM_EDITLAYER, VM_EDITBCS, VM_FEA, VM_PHYSICS, VM_TENSILE, VM_3DBRUSH, VM_NONE};
