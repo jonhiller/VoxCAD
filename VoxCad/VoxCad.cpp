@@ -25,7 +25,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 //#include <ostream>
 //#include <iostream> 
 
-VoxCad::VoxCad(QWidget *parent, Qt::WFlags flags)
+VoxCad::VoxCad(QWidget *parent, Qt::WindowFlags flags)
 : QMainWindow(parent, flags) //, MainSim(&MainEnv, &MainMesh)
 {
 	QCoreApplication::setOrganizationName("HillerLabs");

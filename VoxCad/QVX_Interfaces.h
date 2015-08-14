@@ -14,7 +14,7 @@
 #include <qsettings.h>
 
 //#ifdef VX2
-#include "../voxelyze/include/VX_Voxel.h"
+#include "../Voxelyze/include/VX_Voxel.h"
 //#endif
 
 //for multithreading

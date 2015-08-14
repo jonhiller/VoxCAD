@@ -19,7 +19,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #include "../oldVoxelyze/VX_MeshUtil.h"
 #include "Dlg_VideoCapture.h"
 
-#ifdef linux
+#ifndef WIN32
 #include <unistd.h>
 #endif
 
