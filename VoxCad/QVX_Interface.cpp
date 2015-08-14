@@ -770,7 +770,7 @@ void QVX_Sim::BeginRecording(void) //opens record dialog and begins recording
 						GLUpdateEveryNFrame=1;
 					}
 					else { //round dt down so that VideoDt is an even multiple...
-						GLUpdateEveryNFrame = (int)(VideoDt / dt) + 1;
+						GLUpdateEveryNFrame = (int)(VideoDt / Vx.recommendedTimeStep()) + 1;
 						dt = VideoDt/((double)GLUpdateEveryNFrame);
 					}
 

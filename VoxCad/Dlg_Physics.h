@@ -78,16 +78,16 @@ public slots:
 
 
 	void UseTempCheckChanged(bool State) {pSim->EnableFeature(VXSFEAT_TEMPERATURE, State);} //->EnableTemp(State);};
-	void TempSliderChanged(int NewVal) {if (pSim->pEnv) pSim->pEnv->SetTempAmplitude(NewVal-25); UpdateUI();} //range +/-25 from BaseTemp
-	void TempEditChanged() {double Val = ui.TempEdit->text().toDouble(); pSim->pEnv->SetTempAmplitude(Val-pSim->pEnv->GetTempBase()); UpdateUI();}
+	void TempSliderChanged(int NewVal) {if (pSim->pEnv) pSim->pEnv->SetTempAmplitude(NewVal-25); pSim->UpdateMatTemps(); UpdateUI();} //range +/-25 from BaseTemp
+	void TempEditChanged() {double Val = ui.TempEdit->text().toDouble(); pSim->pEnv->SetTempAmplitude(Val-pSim->pEnv->GetTempBase()); pSim->UpdateMatTemps(); UpdateUI();}
 
 	void VaryTempCheckChanged(bool State) {pSim->EnableFeature(VXSFEAT_TEMPERATURE_VARY, State);} //->EnableTempVary(State);};
 	void TempPerSliderChanged(int NewVal) {pSim->pEnv->SetTempPeriod(NewVal*pSim->OptimalDt); UpdateUI();}; //range 0 to 50
 	void TempPerEditChanged() {double Val = ui.TempPerEdit->text().toDouble(); pSim->pEnv->SetTempPeriod(Val); UpdateUI();}
 
 	void UseGravCheckChanged(bool State) {pSim->EnableFeature(VXSFEAT_GRAVITY, State); if(State) GravEditChanged();} // pEnv->EnableGravity(State);}
-	void GravSliderChanged(int NewVal) {pSim->pEnv->SetGravityAccel(-0.00981*NewVal); UpdateUI();} //range 0 to 10g
-	void GravEditChanged() {double Val = ui.GravEdit->text().toDouble(); pSim->pEnv->SetGravityAccel(Val); UpdateUI();}
+	void GravSliderChanged(int NewVal) {pSim->SetGravityAccel(-0.00981*NewVal); UpdateUI();} //range 0 to 10g
+	void GravEditChanged() {double Val = ui.GravEdit->text().toDouble(); pSim->SetGravityAccel(Val); UpdateUI();}
 
 	void UseFloorCheckChanged(bool State) {pSim->EnableFeature(VXSFEAT_FLOOR, State);} // pEnv->EnableFloor(State);}
 
