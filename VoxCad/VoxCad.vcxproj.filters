@@ -62,6 +62,12 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Header Files\oldVoxelyze">
+      <UniqueIdentifier>{cf178128-c718-4090-8fb4-5f845160baac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\oldVoxelyze">
+      <UniqueIdentifier>{3ce2f347-24ba-4cc4-ab0d-c90b6ff1bb97}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -244,63 +250,6 @@
     <ClCompile Include="..\QTUtils\QSimplePlot.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\VXt_Voxel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\XML_Rip.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\GL_Utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\MarchCube.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\Mesh.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\VX_Benchmark.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\VX_Bond.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\VX_Environment.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\VX_FEA.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\VX_FRegion.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\VX_MeshUtil.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\VX_Object.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\VX_Sim.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\VX_SimGA.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\VXS_Bond.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\VXS_BondCollision.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\VXS_BondInternal.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\VXS_SimGLView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\oldVoxelyze\VXS_Voxel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\Voxelyze\src\Voxelyze.cpp">
       <Filter>Source Files\Voxelyze</Filter>
     </ClCompile>
@@ -331,8 +280,50 @@
     <ClCompile Include="..\Voxelyze\src\VX_MeshRender.cpp">
       <Filter>Source Files\Voxelyze</Filter>
     </ClCompile>
-    <ClCompile Include="..\Voxelyze\src\Mesh3D.cpp">
-      <Filter>Source Files\Voxelyze</Filter>
+    <ClCompile Include="..\oldVoxelyze\GL_Utils.cpp">
+      <Filter>Source Files\oldVoxelyze</Filter>
+    </ClCompile>
+    <ClCompile Include="..\oldVoxelyze\VX_Sim.cpp">
+      <Filter>Source Files\oldVoxelyze</Filter>
+    </ClCompile>
+    <ClCompile Include="..\oldVoxelyze\VX_FEA.cpp">
+      <Filter>Source Files\oldVoxelyze</Filter>
+    </ClCompile>
+    <ClCompile Include="..\oldVoxelyze\VX_Bond.cpp">
+      <Filter>Source Files\oldVoxelyze</Filter>
+    </ClCompile>
+    <ClCompile Include="..\oldVoxelyze\VXS_Bond.cpp">
+      <Filter>Source Files\oldVoxelyze</Filter>
+    </ClCompile>
+    <ClCompile Include="..\oldVoxelyze\VXS_Voxel.cpp">
+      <Filter>Source Files\oldVoxelyze</Filter>
+    </ClCompile>
+    <ClCompile Include="..\oldVoxelyze\VX_Object.cpp">
+      <Filter>Source Files\oldVoxelyze</Filter>
+    </ClCompile>
+    <ClCompile Include="..\oldVoxelyze\Mesh.cpp">
+      <Filter>Source Files\oldVoxelyze</Filter>
+    </ClCompile>
+    <ClCompile Include="..\oldVoxelyze\VX_FRegion.cpp">
+      <Filter>Source Files\oldVoxelyze</Filter>
+    </ClCompile>
+    <ClCompile Include="..\oldVoxelyze\VX_Environment.cpp">
+      <Filter>Source Files\oldVoxelyze</Filter>
+    </ClCompile>
+    <ClCompile Include="..\oldVoxelyze\VX_MeshUtil.cpp">
+      <Filter>Source Files\oldVoxelyze</Filter>
+    </ClCompile>
+    <ClCompile Include="..\oldVoxelyze\XML_Rip.cpp">
+      <Filter>Source Files\oldVoxelyze</Filter>
+    </ClCompile>
+    <ClCompile Include="..\oldVoxelyze\VXS_SimGLView.cpp">
+      <Filter>Source Files\oldVoxelyze</Filter>
+    </ClCompile>
+    <ClCompile Include="..\oldVoxelyze\VXt_Voxel.cpp">
+      <Filter>Source Files\oldVoxelyze</Filter>
+    </ClCompile>
+    <ClCompile Include="..\oldVoxelyze\MarchCube.cpp">
+      <Filter>Source Files\oldVoxelyze</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -391,63 +382,6 @@
     <ClInclude Include="GeneratedFiles\ui_vVideoGen.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Voxelyze\Utils\GL_Utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\Utils\XML_Rip.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\Utils\MarchCube.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\Utils\Mesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\VX_Benchmark.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\VX_Bond.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\VX_Environment.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\VX_FEA.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\VX_FRegion.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\VX_MeshUtil.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\VX_Object.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\VX_Sim.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\VX_SimGA.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\VXS_Bond.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\VXS_BondCollision.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\VXS_BondInternal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\VXS_SimGLView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\VXS_Voxel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Voxelyze\VXt_Voxel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\Voxelyze\include\Array3D.h">
       <Filter>Header Files\Voxelyze</Filter>
     </ClInclude>
@@ -490,11 +424,65 @@
     <ClInclude Include="..\Voxelyze\include\VX_MeshRender.h">
       <Filter>Header Files\Voxelyze</Filter>
     </ClInclude>
-    <ClInclude Include="..\Voxelyze\include\Mesh3D.h">
-      <Filter>Header Files\Voxelyze</Filter>
-    </ClInclude>
     <ClInclude Include="..\Voxelyze\include\MarchCube.h">
       <Filter>Header Files\Voxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\VX_MeshUtil.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\VX_Object.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\VX_Sim.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\VXS_Bond.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\VXS_SimGLView.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\VXS_Voxel.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\VXt_Voxel.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\XML_Rip.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\GL_Utils.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\MarchCube.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\Mesh.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\VX_Bond.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\VX_Enums.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\VX_Environment.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\VX_FEA.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\VX_FRegion.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\zconf.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\zlib.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
+    </ClInclude>
+    <ClInclude Include="..\oldVoxelyze\VXS_BondInternal.h">
+      <Filter>Header Files\oldVoxelyze</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
