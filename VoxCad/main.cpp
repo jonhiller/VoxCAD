@@ -12,7 +12,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 *******************************************************************************/
 
 #include "VoxCad.h"
-#include <QtGui/QApplication>
 
 int main(int argc, char *argv[])
 {
