@@ -253,10 +253,14 @@ QVX_Sim::QVX_Sim(QWidget *parent)
 
 bool QVX_Sim::OpenVXA(QString* pFileNameOut)
 {
-	QString tmpPath = QFileDialog::getOpenFileName(NULL, "Open VoxCad Analysis", GetLastDir(), "VoxCad Analysis Files (*.vxa *.dmfea)");
+	QString tmpPath = QFileDialog::getOpenFileName(NULL, "Open VoxCad Analysis", GetLastDir(), "VoxCad Analysis Files (*.vxa *.dmfea *.vxl.json);;All files (*.*)");
 	if (!tmpPath.isNull()){
 		std::string ReturnString = "";
-		LoadVXAFile(tmpPath.toStdString(), &ReturnString);
+		QString tmp = QFileInfo(tmpPath).completeSuffix();
+		if (QFileInfo(tmpPath).completeSuffix() == "vxl.json")
+			LoadVXLFile(tmpPath.toStdString(), &ReturnString);
+		else
+			LoadVXAFile(tmpPath.toStdString(), &ReturnString);
 		if (ReturnString != "") QMessageBox::warning(NULL, "VXA Load", QString::fromStdString(ReturnString));
 		emit BCsChanged();
 		if (pFileNameOut) *pFileNameOut = QFileInfo(tmpPath).baseName();
@@ -310,7 +314,7 @@ void QVX_Sim::SimLoop(QString* pSimMessage)
 		return;
 	}
 
-//	Vx.loadJSON("tensile.json");
+//	Vx.loadJSON("C:\\Code\\frustum-voxels\\local_server\\public\\solutions\\out_S2_28.vxl.json");
 //	Vx.saveJSON("tensileSandbox.json");
 
 	pSimView->SmoothMesh.LinkSimSmooth(this, pSimView);

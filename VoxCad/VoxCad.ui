@@ -670,6 +670,9 @@
    <property name="text">
     <string>Simulation</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
   </action>
   <action name="actionLarge_Mode">
    <property name="checkable">

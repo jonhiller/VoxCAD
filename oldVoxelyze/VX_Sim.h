@@ -70,6 +70,7 @@ public:
 	//I/O function for save/loading
 	void SaveVXAFile(std::string filename);
 	bool LoadVXAFile(std::string filename, std::string* pRetMsg = NULL);
+	bool LoadVXLFile(std::string filename, std::string* pRetMsg = NULL);
 
 	void WriteVXA(CXML_Rip* pXML);
 	bool ReadVXA(CXML_Rip* pXML, std::string* RetMessage = NULL);

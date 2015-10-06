@@ -76,6 +76,44 @@ bool CVX_Sim::LoadVXAFile(std::string filename, std::string* pRetMsg)
 	return true;
 }
 
+bool CVX_Sim::LoadVXLFile(std::string filename, std::string* pRetMsg)
+{
+	Vx.loadJSON(filename.c_str());
+
+	CVX_Object* pO = pEnv->pObj;
+	pO->ClearMatter();
+	pO->ClearPalette();
+	pO->Lattice.ClearLattice();
+
+	pO->Lattice.SetLatticeDim(Vx.voxelSize());
+	pO->Voxel.SetVoxName(VS_BOX, 1.0, 1.0, 1.0);
+
+	for (int i=0; i<Vx.materialCount(); i++){
+		int thisMat = pO->AddMat(std::string(Vx.material(i)->name()), Vx.material(i)->youngsModulus(), Vx.material(i)->poissonsRatio());
+		pO->Palette[thisMat].SetColor(Vx.material(i)->red()/255.0, Vx.material(i)->green()/255.0, Vx.material(i)->blue()/255.0, Vx.material(i)->alpha()/255.0);
+	}
+
+	pO->Resize(Vx.indexMaxX()-Vx.indexMinX()+1, Vx.indexMaxY()-Vx.indexMinY()+1, Vx.indexMaxZ()-Vx.indexMinZ()+1);
+	for (int i=0; i<Vx.voxelCount(); i++){
+		CVX_Voxel* pV = Vx.voxel(i);
+		
+		int matIndex = 0;
+		for (int j=0; j<Vx.materialCount(); j++){
+			if (pV->material() == Vx.material(j)){
+				matIndex = j+1;
+				continue;
+			}
+		}
+
+		pO->SetMat(pV->indexX()-Vx.indexMinX(), pV->indexY()-Vx.indexMinY(), pV->indexZ()-Vx.indexMinZ(), matIndex);
+	}
+
+	//pEnv->pObj = &LocalVXC; //??
+
+	return true;
+}
+
+
 void CVX_Sim::WriteVXA(CXML_Rip* pXML)
 {
 	pXML->DownLevel("VXA");
