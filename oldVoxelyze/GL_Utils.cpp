@@ -13,15 +13,10 @@ See <http://www.opensource.org/licenses/lgpl-3.0.html> for license details.
 #include "GL_Utils.h"
 #include <math.h>
 
-#ifdef QT_GUI_LIB
+#ifdef QT_OPENGL_LIB
 #include <qgl.h>
 #else
 #include "OpenGLInclude.h" //If not using QT's openGL system, make a header file "OpenGLInclude.h" that includes openGL library functions 
-#endif
-
-#if defined(_WIN32) || defined(_WIN64) //to get fmax, fmin to work on Windows/Visual Studio
-#define fmax max
-#define fmin min
 #endif
 
 //TODO: Lists must be built for each gl context. Hmm.... (otherwise don't show up in other windows...)
@@ -175,8 +170,8 @@ void CGL_Utils::DrawCube(const Vec3D<>& V1, const Vec3D<>& V2, bool Faces, bool 
 // --------------------------------------------------------------------------
 { //Draws a rectangular prism
 	//Make sure Vertices are correct orientation
-	Vec3D<> MinVec(fmin(V1.x, V2.x), fmin(V1.y, V2.y), fmin(V1.z, V2.z));
-	Vec3D<> MaxVec(fmax(V1.x, V2.x), fmax(V1.y, V2.y), fmax(V1.z, V2.z));
+	Vec3D<> MinVec(std::min(V1.x, V2.x), std::min(V1.y, V2.y), std::min(V1.z, V2.z));
+	Vec3D<> MaxVec(std::max(V1.x, V2.x), std::max(V1.y, V2.y), std::max(V1.z, V2.z));
 	Vec3D<> CenVec((V1.x+V2.x)/2.0, (V1.y+V2.y)/2.0, (V1.z+V2.z)/2.0);
 
 	glPushMatrix();

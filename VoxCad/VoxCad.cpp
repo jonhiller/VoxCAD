@@ -170,8 +170,14 @@ VoxCad::~VoxCad()
 
 void VoxCad::SetupGLWindow(void)
 {
-	QGLFormat format; // double buffering and depth buffering is turned on in the default format, so no need to reset those
-	GLWindow = new CQOpenGL(format);
+	//QGLFormat format; // double buffering and depth buffering is turned on in the default format, so no need to reset those
+	//format.setVersion(1, 0);
+
+	//qDebug() << "OpenGL Versions Supported: " << QGLFormat::openGLVersionFlags();
+
+	GLWindow = new CQOpenGL();
+	//GLWindow->setFormat(format);
+
 	ui.horizontalLayout->addWidget(GLWindow);
 
 	//opengl info
@@ -199,8 +205,8 @@ void VoxCad::SetupRef3DWindow(void)
 {
 	Ref3DDockWidget = new QDockWidget(this);
 
-	QGLFormat format; // double buffering and depth buffering is turned on in the default format, so no need to reset those
-	GLRef3DWin = new CQOpenGL(format);
+	//QGLFormat format; // double buffering and depth buffering is turned on in the default format, so no need to reset those
+	GLRef3DWin = new CQOpenGL();
 	GLRef3DWin->SetViewCustom1();
 
 	Ref3DDockWidget->setWidget(GLRef3DWin);

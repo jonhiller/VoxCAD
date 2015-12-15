@@ -18,6 +18,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #include "../oldVoxelyze/VXS_Bond.h"
 #include "../oldVoxelyze/VX_MeshUtil.h"
 #include "Dlg_VideoCapture.h"
+#include <QOpenGLWidget>
 
 #ifndef WIN32
 #include <unistd.h>
@@ -730,7 +731,7 @@ void QVX_Sim::DrawOverlay(void)
 		for (int i=0; i<=NumChunks; i++){
 			double Perc = ((double)i)/NumChunks;
 			ScaleNumber = QString::number(MinVal + (1-Perc) * (MaxVal-MinVal), 'g', 3) + Units;
-			pGLWin->renderText(XOff + XWidth + TextXOff, YOff + Perc*YHeight+5, ScaleNumber);
+			//pGLWin->renderText(XOff + XWidth + TextXOff, YOff + Perc*YHeight+5, ScaleNumber);
 		}
 
 

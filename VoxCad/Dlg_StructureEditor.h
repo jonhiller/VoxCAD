@@ -58,7 +58,7 @@ public slots:
 
 	void IniUpdateUI();
 	void UpdateUI();
-	void UpdateGLWins(void) {pGLWin->updateGL(); GLRef3DWin->updateGL();};
+	void UpdateGLWins(void) {pGLWin->update(); GLRef3DWin->update();};
 	void CurMaterial(int* pMat) {*pMat = ui.MatList->currentRow();};
 
 	void WantGLIndex(bool* YN) {*YN=true;}

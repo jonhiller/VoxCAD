@@ -7,18 +7,20 @@
 #include <math.h>
 
 #include "GL/glu.h"
+#include <qdebug>
 
 #include "../oldVoxelyze/GL_Utils.h"
 
 #if defined(_WIN32) || defined(_WIN64) //to get fmax, fmin to work on Windows/Visual Studio
-#define fmax max
+#define fmax maxglwidget
 #define fmin min
 #endif
 
 int CQOpenGL::TotalID = 0;
 
-CQOpenGL::CQOpenGL(const QGLFormat &format, QWidget *parent) : QGLWidget(format, parent)
+CQOpenGL::CQOpenGL(QWidget *parent) : QOpenGLWidget(parent)
 {
+
 
 	MyID = TotalID++;
 //	if (format == 0) setFormat(QGLFormat(QGL::DoubleBuffer | QGL::DepthBuffer)); //This causes an assert on destruction in some cases. switched to recomended passing in QGLFormat through constructor.
@@ -43,7 +45,7 @@ CQOpenGL::CQOpenGL(const QGLFormat &format, QWidget *parent) : QGLWidget(format,
 	AskedAboutFastMode = false;
 
 	DrawTimer = new QTimer(this);
-	connect(DrawTimer, SIGNAL(timeout()), this, SLOT(updateGL()));
+	connect(DrawTimer, SIGNAL(timeout()), this, SLOT(update()));
 
 	AutoRedraw = false;
 	Drawing = false;
@@ -124,6 +126,8 @@ void CQOpenGL::paintGL()
 	
 	Drawing = true;
 	makeCurrent();
+
+	glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	if (!IniViewSet) GLCenterView(); //set the view appropriately the first time through
 	GLDrawScene(); // Draw OpenGL scene
@@ -289,7 +293,7 @@ void CQOpenGL::mouseMoveEvent(QMouseEvent *event)
 		}
 
 		bool SavingFrames; emit WantAutoSaveFrames(&SavingFrames); //are we recording video?
-		if (!AutoRedraw && !SavingFrames) updateGL();
+		if (!AutoRedraw && !SavingFrames) update();
 		lastPos = event->pos();
 	}
 	else { //If no other button we care about is down:
@@ -316,7 +320,7 @@ void CQOpenGL::wheelEvent(QWheelEvent *event)
 	else {
 		if (event->delta() > 0)	m_Cam.Zoom *= (float)1.05; //zoom zoom!
 		if (event->delta() < 0) m_Cam.Zoom /= (float)1.05;
-		if (!AutoRedraw) updateGL();
+		if (!AutoRedraw) update();
 	}
 }
 
@@ -591,14 +595,14 @@ void CQOpenGL::GLCenterView(bool ReZoom, Vec3D<>* pTargetPos)
 		switch (CurView){
 		case VPERSPECTIVE:
 			float ToZoomH, ToZoomV;
-			ToZoomH = 100 * fmax(CurEnv.x, CurEnv.y);
+			ToZoomH = 100 * std::max(CurEnv.x, CurEnv.y);
 			ToZoomV = 100 * CurEnv.z;
-			m_Cam.Zoom = fmax(ToZoomH/WinAspect, ToZoomV);
+			m_Cam.Zoom = std::max(ToZoomH/WinAspect, ToZoomV);
 
 		break;
-		case VTOP: case VBOTTOM: m_Cam.Zoom = fmax(CurEnv.x/WinAspect, CurEnv.y)/1.95; break;
-		case VRIGHT: case VLEFT: m_Cam.Zoom = fmax(CurEnv.x/WinAspect, CurEnv.z)/1.95; break;
-		case VFRONT: case VBACK: m_Cam.Zoom = fmax(CurEnv.y/WinAspect, CurEnv.z)/1.95; break;
+		case VTOP: case VBOTTOM: m_Cam.Zoom = std::max(CurEnv.x/WinAspect, CurEnv.y)/1.95; break;
+		case VRIGHT: case VLEFT: m_Cam.Zoom = std::max(CurEnv.x/WinAspect, CurEnv.z)/1.95; break;
+		case VFRONT: case VBACK: m_Cam.Zoom = std::max(CurEnv.y/WinAspect, CurEnv.z)/1.95; break;
 
 		}
 	}
@@ -616,7 +620,7 @@ void CQOpenGL::GLSetLighting()
 		float AmbientLight[] = { 0.5f, 0.5f, 0.5f, 1.0f };
 		glLightfv(GL_LIGHT0, GL_AMBIENT, AmbientLight); //Doesn't do anything unless we have at least one light!
 	//	for (int i=0; i<(int)Lights.size(); i++){ Lights[i].SetLight(100*fmax(CurEnv.x, fmax(CurEnv.y, CurEnv.z)));}
-		for (int i=0; i<(int)Lights.size(); i++){ Lights[i].SetLight(100*fmax(CurEnv.x, fmax (CurEnv.y, CurEnv.z)), &CurEnvOff);}
+		for (int i=0; i<(int)Lights.size(); i++){ Lights[i].SetLight(100* std::max(CurEnv.x, std::max(CurEnv.y, CurEnv.z)), &CurEnvOff);}
 
 
 		//Global scene lighing setup
@@ -673,7 +677,7 @@ void CQOpenGL::GlSaveScreenShot(QString FilePath)
 
 
 	QImage Image;
-	Image = grabFrameBuffer();
+//	Image = grabFrameBuffer();
 	bool success = Image.save(FilePath, 0, 95);
 	if (success)
 		int a=0;

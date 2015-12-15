@@ -133,7 +133,7 @@ public slots: //global slot repository for updating things across all windows/vi
 
 	void UpdateAllWins() {EnterVMMode(VM_3DVIEW); PaletteDlg->UpdateUI(); WorkspaceDlg->IniUpdateUI(); VoxInfoDlg->UpdateUI(); ReqGLUpdateAll();}
 
-	void ReqGLUpdateAll() {if (GLWindow->isVisible()) GLWindow->updateGL(); if (GLRef3DWin->isVisible()) GLRef3DWin->updateGL();}
+	void ReqGLUpdateAll() { if (GLWindow->isVisible()) GLWindow->update(); if (GLRef3DWin->isVisible()) GLRef3DWin->update(); }
 	void ZoomExtAll() {if (GLWindow->isVisible()) GLWindow->ZoomExtents(); if (GLRef3DWin->isVisible()) GLRef3DWin->ZoomExtents();}
 	void ResizeGlWindowArea(int Width, int Height) {GLWindow->resize(Width, Height);} //for video export of fixed size...
 	void ResetGlWindowArea(){GLWindow->resize(ui.horizontalLayout->geometry().width(), ui.horizontalLayout->geometry().height());}

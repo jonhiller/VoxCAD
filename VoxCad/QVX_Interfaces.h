@@ -132,7 +132,7 @@ public:
 	QVX_Sim(QWidget *parent = 0);
 	~QVX_Sim(){EndSim();}
 
-	QGLWidget* pGLWin; //need this pointer to render text... :P
+	QOpenGLWidget* pGLWin; //need this pointer to render text... :P
 	CVXS_SimGLView* pSimView;
 
 	Thread SimThread; //the simulation

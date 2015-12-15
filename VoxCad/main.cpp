@@ -16,7 +16,20 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
+
+	QSurfaceFormat format;
+	format.setVersion(3, 2);
+	format.setProfile(QSurfaceFormat::CompatibilityProfile);
+	format.setRenderableType(QSurfaceFormat::OpenGL);
+	format.setOption(QSurfaceFormat::DeprecatedFunctions);
+	
+	//format.
+	QSurfaceFormat::setDefaultFormat(format);
+
+
+
 	VoxCad w;
+
 
 	if (argc > 1){
 		QString Path = argv[1];

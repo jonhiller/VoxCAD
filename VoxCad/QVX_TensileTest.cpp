@@ -595,7 +595,7 @@ void QVX_TensileTest::RenderMixedObject(CVX_Object* pSrcObj, CVX_Object* pDestOb
 					if (pSrcObj->GetMat(ThisInd) == 0) continue; //skip this one if it is empty (no material...
 					
 					if (ix == x && jy==y && kz == z){
-						ThisWeight = max(1+VoxSize/ActualMixRadius.x, max(1+VoxSize/ActualMixRadius.y, 1+VoxSize/ActualMixRadius.z));
+						ThisWeight = std::max(1+VoxSize/ActualMixRadius.x, std::max(1+VoxSize/ActualMixRadius.y, 1+VoxSize/ActualMixRadius.z));
 					}
 					else {
 						ThisPos = pSrcObj->GetXYZ(ThisInd);

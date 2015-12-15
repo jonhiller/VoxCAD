@@ -20,8 +20,8 @@ Dlg_StructureEditor::Dlg_StructureEditor(CQDM_Edit* pEditIn, QWidget *parent)
 	pEdit = pEditIn;
 	ui.setupUi(this);
 
-	QGLFormat format; // double buffering and depth buffering is turned on in the default format, so no need to reset those
-	pGLWin = new CQOpenGL(format);
+	//QGLFormat format; // double buffering and depth buffering is turned on in the default format, so no need to reset those
+	pGLWin = new CQOpenGL();
 	ui.horizontalLayout->addWidget(pGLWin);
 	resize(500, 300);
 	SetupRef3DWindow();
@@ -161,8 +161,8 @@ void Dlg_StructureEditor::SetupRef3DWindow(void)
 	RefWin = new QDialog(this);
 	QHBoxLayout* HorLayout = new QHBoxLayout(RefWin);
 
-	QGLFormat format; // double buffering and depth buffering is turned on in the default format, so no need to reset those
-	GLRef3DWin = new CQOpenGL(format);
+	//QGLFormat format; // double buffering and depth buffering is turned on in the default format, so no need to reset those
+	GLRef3DWin = new CQOpenGL();
 	HorLayout->addWidget(GLRef3DWin);
 	GLRef3DWin->SetViewCustom1();
 	GLRef3DWin->setWindowTitle("3D View");

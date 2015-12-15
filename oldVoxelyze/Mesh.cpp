@@ -401,7 +401,7 @@ bool CMesh::SaveSTL(std::string filename, bool Binary, bool SaveDeformed) const 
 		unsigned short attributes=0;
 
 		for(int i=0; i<NumFaces; i++){
-			float N[3] = {Facets[i].n.x, Facets[i].n.y, Facets[i].n.z};
+			float N[3] = {(float)Facets[i].n.x, (float)Facets[i].n.y, (float)Facets[i].n.z};
 			float P[9] = {0};
 			if (SaveDeformed){
 				P[0] = Vertices[Facets[i].vi[0]].v.x + Vertices[Facets[i].vi[0]].DrawOffset.x;

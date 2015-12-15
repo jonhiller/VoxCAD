@@ -36,7 +36,7 @@
 #ifndef QOpenGL_H 
 #define QOpenGL_H
 
-#include <qgl.h>
+#include <QOpenGLWidget>
 #include <QTimer>
 #include "../Voxelyze/include/Vec3D.h"
 
@@ -59,14 +59,14 @@ struct GL_Light //An OpenGL light structure
 	float D[4], S[4], P[4]; //position is scaled by the size of the Envelope
 	int Index; //the index of this light
 	void SetLight(float Scale, Vec3D<>* Offset) {
-		float sP[4] = {P[0]*Scale+Offset->x, P[1]*Scale+Offset->y, P[2]*Scale+Offset->z, P[3]};
+		float sP[4] = { (float)(P[0]*Scale+Offset->x), (float)(P[1]*Scale+Offset->y), (float)(P[2]*Scale+Offset->z, P[3])};
 		glEnable(Index); 
 		glLightfv(Index, GL_DIFFUSE, D); 
 		glLightfv(Index, GL_SPECULAR, S); 
 		glLightfv(Index, GL_POSITION, sP);};
 };
 
-class CQOpenGL : public QGLWidget
+class CQOpenGL : public QOpenGLWidget
 {
 	Q_OBJECT
 
@@ -96,8 +96,8 @@ signals:
 	void PressedEscape(void); //escape key pressed
 
 public slots:
-	void ZoomExtents() {GLCenterView(); updateGL();}
-	void ReqGLUpdateThis() {updateGL();}
+	void ZoomExtents() {GLCenterView(); update();}
+	void ReqGLUpdateThis() { update();}
 	void SetView(int ViewIndex); //really a ViewType, but for qt's sake we'll keep it an int.
 	void SetViewTop(){SetView(VTOP);}
 	void SetViewBottom(){SetView(VBOTTOM);}
@@ -121,7 +121,7 @@ public slots:
 	void GlSaveScreenShot(QString FilePath);
 
 public:
-	CQOpenGL(const QGLFormat &format, QWidget *parent = 0);
+	CQOpenGL(QWidget *parent = 0);
 	static int TotalID; //keep track of how many openGL windows we've created in this app
 	int MyID; //keep track of which OpenGL window this is...
 	bool bDrawBounds;
